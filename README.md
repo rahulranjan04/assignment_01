@@ -15,7 +15,8 @@ install npm for angular and  mvn spring:boot for backend application
 ## Usage
 
 
-http://localhost:9002/home  for HTTP status api
+http://localhost:9002/home  for HTTP status UI
+http://localhost:9002/httpstatus  for HTTP status api
 
 
 ## Run tests
