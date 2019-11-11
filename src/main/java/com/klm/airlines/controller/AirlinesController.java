@@ -1,7 +1,5 @@
 package com.klm.airlines.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.Callable;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AirlinesController {
 
-	public static Map<String, Integer> resultsHtpp = new HashMap<String, Integer>();
 
 	@Value("${api.url}")
 	private String url = "";
@@ -30,12 +27,6 @@ public class AirlinesController {
 	@Autowired
 	private AirlinesService airlinesService;
 
-	@RequestMapping(value = "/status", method = RequestMethod.GET, produces = "application/json")
-	public Map<String, Integer> geAllHttpStatus() {
-
-		return resultsHtpp;
-
-	}
 
 	@RequestMapping(value = "/airlines", method = RequestMethod.GET, produces = "application/json")
 	public Callable<String> geAll() {
@@ -49,14 +40,14 @@ public class AirlinesController {
 			@PathVariable("destination") String destination) {
 
 		String urlGet = url + "/fares/" + origin + "/" + destination;
-		return () -> airlinesService.getService(urlGet.trim());
+		return () -> airlinesService.getfare(urlGet.trim());
 	}
 
 	@RequestMapping(value = "/airlines/fare/{code}", method = RequestMethod.GET, produces = "application/json")
 	public Callable<String> getAirports(@PathVariable("code") String code) {
 
 		String urlGet = url + "/airports/" + code;
-		return () -> airlinesService.getService(urlGet);
+		return () -> airlinesService.getfare(urlGet);
 	}
 
 	@RequestMapping(value = "/airlines/search", method = RequestMethod.GET, produces = "application/json")

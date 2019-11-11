@@ -3,19 +3,70 @@
 <html>
 
 <head>
-	<title>Statistics</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Statistics</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script>
-	$(document).ready(function() {
-    $.ajax({
-        url: "http://localhost:9002/status"
-    }).then(function(data) {
-		consoloe.log(data);
+  <script>
+
+    $(document).ready(function () {
+      $('#ajax').click(function () {
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "http://localhost:9002/httpstatus",
+          success: function (data) {
+            console.log(data);
+            document.getElementById('totalNumberOfRequest').innerHTML = data.totalNumberOfRequest;
+            document.getElementById('okResponse').innerHTML = data.okResponse;
+            document.getElementById('fiveResponse').innerHTML = data.fiveResponse;
+            document.getElementById('fourResponse').innerHTML = data.fourResponse;
+            document.getElementById('avgResponse').innerHTML = data.avgResponse;
+            document.getElementById('minResponse').innerHTML = data.minResponse;
+            document.getElementById('maxResponse').innerHTML = data.maxResponse;
+          }
+        });
+      });
     });
-});
-</script>
-<body onload="getData()">{{resultsHtpp}}</body>
+
+  </script>
 </head>
+
+<body>
+  <div>
+    <table>
+      <tr>
+        <td>The Total Number of Request is </td>
+        <td id="totalNumberOfRequest"></td>
+      </tr>
+      <tr>
+        <td>The Total Number of OK resposne is </td>
+        <td id="okResponse"></td>
+      </tr>
+      <tr>
+        <td>The Total Number of 5xx resposne is </td>
+        <td id="fiveResponse"></td>
+      </tr>
+      <tr>
+        <td>The Total Number of 4xx resposne is </td>
+        <td id="fourResponse"></td>
+      </tr>
+      <tr>
+        <td>Average Resposne Time in ms is </td>
+        <td id="avgResponse"></td>
+      </tr>
+      <tr>
+        <td>Minimum Resposne Time in ms is </td>
+        <td id="minResponse"></td>
+      </tr>
+      <tr>
+        <td>Maximum Resposne Time in ms is </td>
+        <td id="maxResponse"></td>
+      </tr>
+      <tr>
+      <button id="ajax">Get Statistics</button>
+      </tr>
+    </table>
+  </div>
+</body>
 
 </html>

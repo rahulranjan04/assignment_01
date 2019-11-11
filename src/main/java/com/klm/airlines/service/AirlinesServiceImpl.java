@@ -9,16 +9,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.klm.airlines.controller.AirlinesController;
+import com.klm.airlines.controller.ErrorControllerClass;
 
 @Service
 public class AirlinesServiceImpl implements AirlinesService {
 
-	private Integer counter = 0;
+	public static Map<String, Integer> resultsHtppResponse = new HashMap<String, Integer>();
+
+	private Integer counter = 1;
 
 	@Value("${api.url}")
 	private String url = "";
@@ -34,19 +37,30 @@ public class AirlinesServiceImpl implements AirlinesService {
 		return results;
 	}
 
-	public String getService(String urlGet) {
-	
-		String results = "";
+	public String getService(String urlGet) throws IOException {
+
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+
+		ResponseEntity<String> responseEntity = restOperations.getForEntity(urlGet, String.class);
+		responseEntity = restOperations.getForEntity(urlGet, String.class);
+		ErrorControllerClass.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
+		stopWatch.stop();
+		resultsHtppResponse.put("Time_Taken_"+counter, (int) stopWatch.getTotalTimeMillis());
+		return Converter(responseEntity.getBody());
+	}
+
+	public String getfare(String urlGet) {
+
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+
 		ResponseEntity<String> responseEntity = null;
-		try {
-			responseEntity = restOperations.getForEntity(urlGet, String.class);
-			AirlinesController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
-			results = Converter(responseEntity.getBody());
-		} catch (IOException e) {
-			AirlinesController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
-			e.printStackTrace();
-		}
-		return results;
+		responseEntity = restOperations.getForEntity(urlGet, String.class);
+		stopWatch.stop();
+		resultsHtppResponse.put("Time_Taken_"+counter, (int) stopWatch.getTotalTimeMillis());
+		ErrorControllerClass.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
+		return (responseEntity.getBody());
 	}
 
 }
