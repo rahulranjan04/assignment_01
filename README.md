@@ -11,8 +11,11 @@
 For Frontend angular application
 
 install npm for angular2
+
 install bootstrap
+
 install rxjs
+
 replace app with commmited app code.
 
 For Backend Java Application
