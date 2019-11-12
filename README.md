@@ -1,28 +1,40 @@
+ <h1>KLM<h1>
+  
+ The Front end Project is made in angular 2 and backend support is developed in java 8 using spring boot framework. 
 
-
-> Airline Information
-
-### 🏠 [Homepage](Home)
+### 🏠 [Homepage](http:/localhost:4200)
 
 ### ✨ [Demo](http:/localhost:4200)
 
 ## Install
 
+For Frontend angular application
 
-install npm for angular and  mvn spring:boot for backend application 
+install npm for angular2
+install bootstrap
+install rxjs
+replace app with commmited app code.
+
+For Backend Java Application
+install java8
 
 
 ## Usage
 
-http://localhost:4200 for Home Page
+http://localhost:4200 for Home Page For Frontend
 
-http://localhost:9002/home  for HTTP status UI
+http://localhost:9002/home  for HTTP status UI DashBoard
+
 http://localhost:9002/httpstatus  for HTTP status api
 
 
 ## Run tests
 
-run ng serve
+For Frontend angular application
+run ng serve for frontend angular
+
+For Backend Java Application
+mvn spring:boot
 
 ## Author
 
@@ -35,4 +47,3 @@ run ng serve
 Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
