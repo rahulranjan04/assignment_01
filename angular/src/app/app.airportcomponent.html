@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title>Airport Locations</title>
+</head>
+
+<body>
+	<div class="row">
+		<div class="m-t-1">
+				<div class="table-users">
+			<table >
+				<tr>
+					<td><label for="Search">Search Airports</label></td>
+					<td><input id="seacrh_input" type="text" name="originpath" required="required" [(ngModel)]="searchAirport"
+							[formControl]="queryField" class="form-control">
+					</td>
+				</tr>
+			</table>
+			
+			<table>
+				<tr>
+					<th>S NO.</th>
+					<th>Code</th>
+					<span class="glyphicon sort-icon" *ngIf="key =='code'"
+						[ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+					<th (click)="sort('name')">Name</th>
+					<span class="glyphicon sort-icon" *ngIf="key =='name'"
+						[ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+					<th (click)="sort('genre')">Description</th>
+					<span class="glyphicon sort-icon" *ngIf="key =='desc'"
+						[ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+				</tr>
+			
+				<tr *ngFor="let result of allairresults?.locations | orderBy: key : reverse | filter:searchAirport| paginate:
+				 { itemsPerPage: 5, currentPage: p }; let i = index">
+					<td>{{result.code}}</td>
+					<td>{{result.name}}</td>
+					<td>{{result.description}}</td>
+				</tr>
+			</table>
+			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+			</div>
+			</div>
+		</div>
+</body>
+
+</html>
