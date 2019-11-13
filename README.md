@@ -10,16 +10,9 @@
 
 For Frontend angular application
 
-install npm for angular2
 
-install bootstrap
+Put dist folder in any standalone server
 
-install rxjs
-
-replace app with commmited app code.
-
-For Backend Java Application
-install java8
 
 
 ## Usage
@@ -37,7 +30,10 @@ For Frontend angular application
 run ng serve for frontend angular
 
 For Backend Java Application
-mvn spring:boot
+java -jar target/airlines-0.0.1-SNAPSHOT.jar
+
+For Mock Service 
+gradlew bootRun
 
 ## Author
 
