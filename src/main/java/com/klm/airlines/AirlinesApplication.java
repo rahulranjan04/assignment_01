@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableOAuth2Client
 @EnableWebMvc
 @ComponentScan("com.klm*")
-class AirlinesApplication extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
+public class AirlinesApplication extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

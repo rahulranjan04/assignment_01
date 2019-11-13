@@ -13,8 +13,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link type="text/css" href="/css/restaurant.css" media="screen" />
   <style>
+    .headerPage {
+	overflow: hidden;
+	background-color: #000000;
+	color: white;
+	font-size: 1.5em;
+	padding: 1rem;
+	text-align: left;
+	text-transform: uppercase;
+	border-bottom: 8px solid #800000;
+}
     body {
-      background-color: #91ced4;
+      background-color: #ffffff;
     }
 
     body * {
@@ -22,7 +32,7 @@
     }
 
     .header {
-      background-color: #327a81;
+      background-color: #800000;
       color: white;
       font-size: 1.5em;
       padding: 1rem;
@@ -37,7 +47,7 @@
     }
 
     .table-users {
-      border: 1px solid #327a81;
+      border: 1px solid #800000;
       border-radius: 10px;
       box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
       max-width: calc(100% - 2em);
@@ -55,6 +65,11 @@
       color: #2b686e;
       padding: 10px;
       text-align: center;
+      	font: italic normal 12px/30px Georgia, serif;
+  font-size: 15px;
+  color: black;	
+  border-radius:inherit;
+  text-align: center;
     }
 
     table td {
@@ -106,11 +121,17 @@
 </head>
 
 <body>
+  	<div class="headerPage">
+		<a href="" class="logo"><img  alt="" /></a>
+		<div class="header-right">
+			<a class="active" href=""></a> <a href=""></a>
+		</div>
+	</div>
   <div class="table-users">
     <div class="header">Statistics</div>
     <table>
       <tr>
-        <th>Specification</th>
+        <th>Metrics</th>
         <th>Count</th>
       </tr>
       <tr>
@@ -144,7 +165,7 @@
     </table>
   </div>
   <tr>
-    <td><button class="btn btn-success" style="margin-left:300px" type="submit" name="save" id="saveButton"
+    <td><button class="btn btn-info" style="margin-left:300px" type="submit" name="save" id="saveButton"
         value="SAVE">Get
         Statistics</button></td>
   </tr>

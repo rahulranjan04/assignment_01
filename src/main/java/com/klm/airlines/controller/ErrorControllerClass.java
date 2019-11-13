@@ -8,13 +8,15 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.klm.airlines.service.AirlinesServiceImpl;
 
-@RestController
+@Controller
 public class ErrorControllerClass implements ErrorController {
 
 	public static Map<String, Integer> resultsHtpp = new HashMap<String, Integer>();
@@ -28,15 +30,17 @@ public class ErrorControllerClass implements ErrorController {
 	private Integer httpCounter200 = 0;
 
 	@RequestMapping(value = "/error", method = RequestMethod.GET, produces = "application/json")
-	public Map<String, Integer> handleError(HttpServletRequest request) {
+	public String handleError(HttpServletRequest request) {
 		Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 		if (status.toString().startsWith("5"))
 			httpCounter500++;
 		else if (status.toString().startsWith("4"))
 			httpCounter400++;
-		return resultsHtpp;
+		return "index";
 	}
 
+	
+	@ResponseBody
 	@RequestMapping(value = "/httpstatus", method = RequestMethod.GET, produces = "application/json")
 	public Map<String, Integer> handleErrorStatus(HttpServletRequest request) {
 
@@ -62,6 +66,9 @@ public class ErrorControllerClass implements ErrorController {
 			maxResponseTime = AirlinesServiceImpl.resultsHtppResponse.entrySet().stream()
 					.max(Comparator.comparingDouble(Map.Entry::getValue)).map(Map.Entry::getValue).get();
 		}
+		
+		if (httpCounter200 == null)
+			httpCounter200 = 0;
 
 		resultsHtpp.put("totalNumberOfRequest", totalRequest);
 		resultsHtpp.put("okResponse", httpCounter200);
