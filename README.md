@@ -10,24 +10,25 @@
 
 For Frontend angular application
 
-
-Put dist folder in any standalone server
-
+Put airlines/dist folder in any standalone server
 
 
 ## Usage
 
-http://localhost:4200 for Home Page For Frontend
+Home Page URL
+http://localhost:4200 
 
-http://localhost:9002/home  for HTTP status UI DashBoard
+HTTP status UI DashBoard
+http://localhost:9002/home
 
-http://localhost:9002/httpstatus  for HTTP status api
+HTTP status api
+http://localhost:9002/httpstatus 
 
 
 ## Run tests
 
 For Frontend angular application
-run ng serve for frontend angular
+run standalone server
 
 For Backend Java Application
 java -jar target/airlines-0.0.1-SNAPSHOT.jar
