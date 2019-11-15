@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import 'rxjs/Rx';
 import {AppService} from './app.service';
+
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ title = 'KLM';
 apiRoot: 'http://localhost:9002/airlines';
 allairresults: any;
 searchAirport : string;
+term: any;
 
 constructor(private appService: AppService) {
   this.appService=appService;
@@ -31,14 +34,24 @@ sort(key){
     this.reverse = !this.reverse;
   }
 
-  queryField: FormControl = new FormControl();
- queryField1: FormControl = new FormControl(); 
+
+queryFieldSearch: FormControl = new FormControl();
 
  ngOnInit() {
- this.showSelected = true;
-        this.hideSelected = false;
-this.appService.doGet().subscribe(data => this.allairresults = data);
+
+this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
+
+this.queryFieldSearch.valueChanges.debounceTime(1000).subscribe(() => {
+if ( this.searchAirport !== undefined){
+this.appService.doGetSearch(this.searchAirport).subscribe(data => this.allairresults= data);
+}
+});
+
 }
 
+getServerData()
+{
+this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
+}
 
 }

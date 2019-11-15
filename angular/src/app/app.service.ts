@@ -9,8 +9,8 @@ constructor(private http: HttpClient) { }
 
 url = `${'http://localhost:9002/airlines'}`;
 
- doGet(){
-return this.http.get(this.url);
+ doGet(page){
+return this.http.get(this.url+'?page='+page);
 }
 
 doGetFare(originpath,destination) {
@@ -27,7 +27,14 @@ return this.http.get(urlSearch);
 
 
 doGetAirports(originpath) {
-this.url = `${this.url +'/fare/' + originpath}`;
-this.http.get(this.url);
+ let urlAirport;
+urlAirport = `${this.url +'/fare/' + originpath}`;
+return this.http.get(urlAirport);
+}
+
+doGetStatistics() {
+let urlStat;
+urlStat = `${this.url+'/httpstatus'}`;
+return this.http.get(urlStat);
 }
 }

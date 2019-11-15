@@ -39,16 +39,6 @@ export class AppComponent implements OnInit {
    hideSelected:boolean;
  
 
-    ShowButton() {
-        this.showSelected = true;
-        this.hideSelected = false;
-    }
-    HideButton() {
-        this.showSelected = false;
-        this.hideSelected = true;
-    }
-
-
 
 
 constructor(private appService: AppService) {
@@ -60,13 +50,13 @@ constructor(private appService: AppService) {
 this.showSelected = false;
 this.hideSelected = true;
 
-this.queryField.valueChanges.debounceTime(2000).subscribe(() => {
+this.queryField.valueChanges.debounceTime(1000).subscribe(() => {
 if ( this.originpath !== undefined){
 this.appService.doGetSearch(this.originpath).subscribe(data => this.term= data);
 }
 });
 
-this.queryField1.valueChanges.debounceTime(2000).subscribe(() =>{
+this.queryField1.valueChanges.debounceTime(1000).subscribe(() =>{
 if ( this.destination !== undefined){
 this.appService.doGetSearch(this.destination).subscribe(data => this.term= data);
 }

@@ -41,7 +41,7 @@ public class ErrorControllerClass implements ErrorController {
 
 	
 	@ResponseBody
-	@RequestMapping(value = "/httpstatus", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/airlines/httpstatus", method = RequestMethod.GET, produces = "application/json")
 	public Map<String, Integer> handleErrorStatus(HttpServletRequest request) {
 
 		httpCounter200 = resultsHtpp.get("OK");

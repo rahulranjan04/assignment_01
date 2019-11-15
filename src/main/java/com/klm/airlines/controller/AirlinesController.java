@@ -29,9 +29,9 @@ public class AirlinesController {
 
 
 	@RequestMapping(value = "/airlines", method = RequestMethod.GET, produces = "application/json")
-	public Callable<String> geAll() {
+	public Callable<String> geAll(@RequestParam String page) {
 
-		String urlGet = url + "/airports";
+		String urlGet = url + "/airports?page="+page;
 		return () -> airlinesService.getService(urlGet);
 	}
 
