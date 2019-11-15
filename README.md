@@ -28,12 +28,15 @@ http://localhost:9002/httpstatus
 ## Run tests
 
 For Frontend angular application
+
 run standalone server
 
 For Backend Java Application
+
 java -jar target/airlines-0.0.1-SNAPSHOT.jar
 
-For Mock Service 
+For Mock Service
+
 gradlew bootRun
 
 ## Author
