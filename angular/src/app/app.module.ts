@@ -2,21 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { AppFareComponent } from './farecomponent/app.farecomponent';
+import { AirportComponent } from './airportcomponent/app.airportcomponent';
+import { AppStatsComponent } from './statscomponent/app.statscomponent';
+import { HomeComponent } from './homecomponent/homecomponent';
 import { AppComponent } from './app.component';
-import { AirportComponent } from './app.airportcomponent';
-import { AppStatsComponent } from './app.statscomponent';
-import { AppMain } from './app.main';
 import { HttpClientModule,HttpErrorResponse } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from 'angular-carousel';
 
 
 const appRoutes: Routes = [
-   { path: 'Fare', component: AppComponent },
+   { path: 'Fare', component: AppFareComponent },
    { path: 'Airports', component: AirportComponent },
-   { path: 'Stats', component: AppStatsComponent }
+   { path: 'Stats', component: AppStatsComponent },
+   { path: 'Home', component: HomeComponent },
+   {path: '', redirectTo: 'Home', pathMatch: 'full'},
+   {path: '**', component: HomeComponent}
 ];
 
 @NgModule({
@@ -24,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     AirportComponent,
     AppStatsComponent,
-    AppMain
+    AppFareComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
-  bootstrap: [AppMain]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

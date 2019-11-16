@@ -7,10 +7,10 @@ export class AppService {
 constructor(private http: HttpClient) { }
 
 
-url = `${'http://localhost:9002/airlines'}`;
+url = `${'/airlines'}`;
 
  doGet(page){
-return this.http.get(this.url+'?page='+page);
+return this.http.get(this.url+'/all?page='+page);
 }
 
 doGetFare(originpath,destination) {

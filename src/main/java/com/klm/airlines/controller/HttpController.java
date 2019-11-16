@@ -12,12 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.klm.airlines.service.AirlinesServiceImpl;
 
 @Controller
-public class ErrorControllerClass implements ErrorController {
+public class HttpController implements ErrorController {
 
 	public static Map<String, Integer> resultsHtpp = new HashMap<String, Integer>();
 
@@ -39,7 +38,6 @@ public class ErrorControllerClass implements ErrorController {
 		return "index";
 	}
 
-	
 	@ResponseBody
 	@RequestMapping(value = "/airlines/httpstatus", method = RequestMethod.GET, produces = "application/json")
 	public Map<String, Integer> handleErrorStatus(HttpServletRequest request) {
@@ -66,7 +64,7 @@ public class ErrorControllerClass implements ErrorController {
 			maxResponseTime = AirlinesServiceImpl.resultsHtppResponse.entrySet().stream()
 					.max(Comparator.comparingDouble(Map.Entry::getValue)).map(Map.Entry::getValue).get();
 		}
-		
+
 		if (httpCounter200 == null)
 			httpCounter200 = 0;
 

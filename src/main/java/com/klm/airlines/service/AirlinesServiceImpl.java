@@ -14,7 +14,7 @@ import org.springframework.util.StopWatch;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.klm.airlines.controller.ErrorControllerClass;
+import com.klm.airlines.controller.HttpController;
 
 @Service
 public class AirlinesServiceImpl implements AirlinesService {
@@ -43,7 +43,7 @@ public class AirlinesServiceImpl implements AirlinesService {
 		stopWatch.start();
 
 		ResponseEntity<String> responseEntity = restOperations.getForEntity(urlGet, String.class);
-		ErrorControllerClass.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
+		HttpController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
 		stopWatch.stop();
 		resultsHtppResponse.put("Time_Taken_" + counter, (int) stopWatch.getTotalTimeMillis());
 		return Converter(responseEntity.getBody());
@@ -57,7 +57,7 @@ public class AirlinesServiceImpl implements AirlinesService {
 		ResponseEntity<String> responseEntity = restOperations.getForEntity(urlGet, String.class);
 		stopWatch.stop();
 		resultsHtppResponse.put("Time_Taken_" + counter, (int) stopWatch.getTotalTimeMillis());
-		ErrorControllerClass.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
+		HttpController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
 		return (responseEntity.getBody());
 	}
 

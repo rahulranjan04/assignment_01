@@ -1,0 +1,8 @@
+{
+  "/airlines/*": {
+    "target": "http://localhost:9002",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
