@@ -8,30 +8,19 @@
 
 ## Install
 
-For Frontend angular application
-
-Put airlines/dist folder in any standalone server
-
 
 ## Usage
 
 Home Page URL
-http://localhost:4200 
-
-HTTP status UI DashBoard
-http://localhost:9002/home
+http://localhost:9002/index.html
 
 HTTP status api
-http://localhost:9002/httpstatus 
+http://localhost:9002/airlines/httpstatus
 
 
 ## Run tests
 
-For Frontend angular application
-
-run standalone server
-
-For Backend Java Application
+For Frontend angular and Backend Java application
 
 java -jar target/airlines-0.0.1-SNAPSHOT.jar
 
