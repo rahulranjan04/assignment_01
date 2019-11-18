@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { debounceTime, map } from 'rxjs/operators';
-import {AppService} from '../app.service';
+import {AppService} from '../service/app.service';
 
 
 @Component({

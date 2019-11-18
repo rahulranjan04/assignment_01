@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import 'rxjs/Rx';
-import { AppService } from '../app.service';
+import { AppService } from '../service/app.service';
 
 
 @Component({
