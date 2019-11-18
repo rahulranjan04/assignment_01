@@ -17,7 +17,7 @@
 					<tbody>
 						<tr>
 						<td><input id="origin_input" list="origin_list" type="text" name="originpath"
-								required="required" [(ngModel)]="originpath" [formControl]="queryField"
+								required="required" [(ngModel)]="originpath" [formControl]="originInput"
 								class="form-control">
 							<datalist id="origin_list">
 								<option *ngFor="let result of term?.locations" [value]="result?.code | lowercase">
@@ -28,7 +28,7 @@
 						</td>
 
 						<td><input type="text" list="destination_list" name="destination" required="required"
-								[(ngModel)]="destination" [formControl]="queryField1" class="form-control"></td>
+								[(ngModel)]="destination" [formControl]="destinationInput" class="form-control"></td>
 						<datalist id="destination_list">
 							<option *ngFor="let result of term?.locations" [value]="result?.code | lowercase">
 								{{result?.name | json}}

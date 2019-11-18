@@ -11,21 +11,18 @@ import {AppService} from '../service/app.service';
 })
 
 export class StatsComponent implements OnInit {
-
 statistics:any;
 
 constructor(private appService: AppService) {
-  this.appService=appService;
- }
+this.appService=appService;
+}
 
- ngOnInit() {
+ngOnInit() {
 this.appService.doGetStatistics().subscribe(data => this.statistics = data);
 }
+
 doGetStatistics(){
 this.appService.doGetStatistics().subscribe(data => this.statistics = data);
 }
-
-
-
 
 }

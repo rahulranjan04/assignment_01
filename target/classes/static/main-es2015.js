@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<html>\n\n<head>\n\t<title>Airport Locations</title>\n</head>\n\n<body>\n\t\n      <div class=\"col-lg-8 mb-5 alignment\">\n        <div class=\"p-5 bg-white d-flex align-items-center shadow-sm rounded h-100\">\n          <div class=\"demo-content\">\n        \n\t\t\t\t<table>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><label for=\"Search\">Search Airports</label></td>\n\t\t\t\t\t\t<td><input id=\"seacrh_input\" type=\"text\" name=\"originpath\" required=\"required\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"searchAirport\" [formControl]=\"queryFieldSearch\" class=\"form-control\">\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n<pagination-controls (pageChange)=\"p = $event\" (pageChange)=\"page = getServerData($event)\" id=\"1\"\n\t\t\t\t\tmaxSize=\"3\" directionLinks=\"true\" autohide=\"true\"></pagination-controls>\n\t\t\t\t<table class=\"table\">\n\t\t\t\t\t<thead class=\"thead-dark\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\">Code</th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sort('name')\">Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sort('genre')\">Description</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let result of allairresults?.locations | orderBy: key : reverse | paginate:\n\t\t\t\t { itemsPerPage: 25, currentPage: p ,id : 1, totalItems:1048}; let i = index\">\n\t\t\t\t\t\t\t<td>{{result.code}}</td>\n\t\t\t\t\t\t\t<td>{{result.name}}</td>\n\t\t\t\t\t\t\t<td>{{result.description}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n</body>\n\n</html>");
+/* harmony default export */ __webpack_exports__["default"] = ("<html>\n\n<head>\n\t<title>Airport Locations</title>\n</head>\n\n<body>\n\t\n      <div class=\"col-lg-8 mb-5 alignment\">\n        <div class=\"p-5 bg-white d-flex align-items-center shadow-sm rounded h-100\">\n          <div class=\"demo-content\">\n        \n\t\t\t\t<table>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><label for=\"Search\">Search Airports</label></td>\n\t\t\t\t\t\t<td><input id=\"seacrh_input\" type=\"text\" name=\"originpath\" required=\"required\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"searchAirport\" [formControl]=\"searchAirportInput\" class=\"form-control\">\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n<pagination-controls (pageChange)=\"p = $event\" (pageChange)=\"page = getServerData($event)\" id=\"1\"\n\t\t\t\t\tmaxSize=\"3\" directionLinks=\"true\" autohide=\"true\"></pagination-controls>\n\t\t\t\t<table class=\"table\">\n\t\t\t\t\t<thead class=\"thead-dark\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\">Code</th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sort('name')\">Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sort('genre')\">Description</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let result of allAirResults?.locations | orderBy: key : reverse | paginate:\n\t\t\t\t { itemsPerPage: 25, currentPage: p ,id : 1, totalItems:1048}; let i = index\">\n\t\t\t\t\t\t\t<td>{{result.code}}</td>\n\t\t\t\t\t\t\t<td>{{result.name}}</td>\n\t\t\t\t\t\t\t<td>{{result.description}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n</body>\n\n</html>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!DOCTYPE html>\n<html>\n\t<head>\n<title>Search Airport Locations</title>\n</head>\n<body>\n\t<div class=\"col-lg-8 mb-5 alignment\">\n        <div class=\"p-5 bg-white d-flex align-items-center shadow-sm rounded h-100\">\n          <div class=\"demo-content\">\n\t\t\t\t<table class=\"table\">\n\t\t\t\t\t<thead class=\"thead-dark\">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>Origin</th>\n\t\t\t\t\t\t<th>Destination</th>\n\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><input id=\"origin_input\" list=\"origin_list\" type=\"text\" name=\"originpath\"\n\t\t\t\t\t\t\t\trequired=\"required\" [(ngModel)]=\"originpath\" [formControl]=\"queryField\"\n\t\t\t\t\t\t\t\tclass=\"form-control\">\n\t\t\t\t\t\t\t<datalist id=\"origin_list\">\n\t\t\t\t\t\t\t\t<option *ngFor=\"let result of term?.locations\" [value]=\"result?.code | lowercase\">\n\t\t\t\t\t\t\t\t\t{{result?.name | json}}\n\t\t\t\t\t\t\t\t\t{{result?.description | json}}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</datalist>\n\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t<td><input type=\"text\" list=\"destination_list\" name=\"destination\" required=\"required\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"destination\" [formControl]=\"queryField1\" class=\"form-control\"></td>\n\t\t\t\t\t\t<datalist id=\"destination_list\">\n\t\t\t\t\t\t\t<option *ngFor=\"let result of term?.locations\" [value]=\"result?.code | lowercase\">\n\t\t\t\t\t\t\t\t{{result?.name | json}}\n\t\t\t\t\t\t\t\t{{result?.description | json}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t</datalist>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"doGetFares()\">Calculate</button>\n\t\t\t\t\t\t</td>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t\n\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<tr >\n\t\t\t\t\t\t<td *ngIf=\"(fare | json)\">The Fare for Flight from {{fare?.origin | json}} to\n\t\t\t\t\t\t\t{{fare?.destination | json}}\n\t\t\t\t\t\t\tis {{fare?.currency | json}} {{fare?.amount | json}}</td>\n\t\t\t\t\t</tr>\n\t\t\t</div>\n</div>\n\t\t</div>\n</body>\n\n</html>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!DOCTYPE html>\n<html>\n\t<head>\n<title>Search Airport Locations</title>\n</head>\n<body>\n\t<div class=\"col-lg-8 mb-5 alignment\">\n        <div class=\"p-5 bg-white d-flex align-items-center shadow-sm rounded h-100\">\n          <div class=\"demo-content\">\n\t\t\t\t<table class=\"table\">\n\t\t\t\t\t<thead class=\"thead-dark\">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>Origin</th>\n\t\t\t\t\t\t<th>Destination</th>\n\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><input id=\"origin_input\" list=\"origin_list\" type=\"text\" name=\"originpath\"\n\t\t\t\t\t\t\t\trequired=\"required\" [(ngModel)]=\"originpath\" [formControl]=\"originInput\"\n\t\t\t\t\t\t\t\tclass=\"form-control\">\n\t\t\t\t\t\t\t<datalist id=\"origin_list\">\n\t\t\t\t\t\t\t\t<option *ngFor=\"let result of term?.locations\" [value]=\"result?.code | lowercase\">\n\t\t\t\t\t\t\t\t\t{{result?.name | json}}\n\t\t\t\t\t\t\t\t\t{{result?.description | json}}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</datalist>\n\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t<td><input type=\"text\" list=\"destination_list\" name=\"destination\" required=\"required\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"destination\" [formControl]=\"destinationInput\" class=\"form-control\"></td>\n\t\t\t\t\t\t<datalist id=\"destination_list\">\n\t\t\t\t\t\t\t<option *ngFor=\"let result of term?.locations\" [value]=\"result?.code | lowercase\">\n\t\t\t\t\t\t\t\t{{result?.name | json}}\n\t\t\t\t\t\t\t\t{{result?.description | json}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t</datalist>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"doGetFares()\">Calculate</button>\n\t\t\t\t\t\t</td>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t\n\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<tr >\n\t\t\t\t\t\t<td *ngIf=\"(fare | json)\">The Fare for Flight from {{fare?.origin | json}} to\n\t\t\t\t\t\t\t{{fare?.destination | json}}\n\t\t\t\t\t\t\tis {{fare?.currency | json}} {{fare?.amount | json}}</td>\n\t\t\t\t\t</tr>\n\t\t\t</div>\n</div>\n\t\t</div>\n</body>\n\n</html>\n");
 
 /***/ }),
 
@@ -341,7 +341,7 @@ let AirportComponent = class AirportComponent {
     constructor(appService) {
         this.appService = appService;
         this.p = 1;
-        this.queryFieldSearch = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.searchAirportInput = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
         this.key = 'name';
         this.reverse = false;
         this.appService = appService;
@@ -351,15 +351,15 @@ let AirportComponent = class AirportComponent {
         this.reverse = !this.reverse;
     }
     ngOnInit() {
-        this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
-        this.queryFieldSearch.valueChanges.debounceTime(1000).subscribe(() => {
+        this.appService.doGet(this.p).subscribe(data => this.allAirResults = data);
+        this.searchAirportInput.valueChanges.debounceTime(1000).subscribe(() => {
             if (this.searchAirport !== undefined) {
-                this.appService.doGetSearch(this.searchAirport).subscribe(data => this.allairresults = data);
+                this.appService.doGetSearch(this.searchAirport).subscribe(data => this.allAirResults = data);
             }
         });
     }
     getServerData() {
-        this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
+        this.appService.doGet(this.p).subscribe(data => this.allAirResults = data);
     }
 };
 AirportComponent.ctorParameters = () => [
@@ -551,18 +551,18 @@ __webpack_require__.r(__webpack_exports__);
 let FareComponent = class FareComponent {
     constructor(appService) {
         this.appService = appService;
-        this.queryField = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
-        this.queryField1 = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.originInput = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.destinationInput = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
         this.appService = appService;
     }
     ngOnInit() {
         this.showSelected = false;
-        this.queryField.valueChanges.debounceTime(1000).subscribe(() => {
+        this.originInput.valueChanges.debounceTime(1000).subscribe(() => {
             if (this.originpath !== undefined) {
                 this.appService.doGetSearch(this.originpath).subscribe(data => this.term = data);
             }
         });
-        this.queryField1.valueChanges.debounceTime(1000).subscribe(() => {
+        this.destinationInput.valueChanges.debounceTime(1000).subscribe(() => {
             if (this.destination !== undefined) {
                 this.appService.doGetSearch(this.destination).subscribe(data => this.term = data);
             }

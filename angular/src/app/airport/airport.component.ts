@@ -14,40 +14,37 @@ import { AppService } from '../service/app.service';
 
 export class AirportComponent implements OnInit {
 
-  p: number = 1;
-  allairresults: any;
-  searchAirport: string;
+p: number = 1;
+allAirResults: any;
+searchAirport: string;
 
-  queryFieldSearch: FormControl = new FormControl();
+searchAirportInput: FormControl = new FormControl();
 
-  constructor(private appService: AppService) {
-    this.appService = appService;
-  }
-
-
-  key: string = 'name';
-  reverse: boolean = false;
-  sort(key) {
-    this.key = key;
-    this.reverse = !this.reverse;
-  }
+constructor(private appService: AppService) {
+this.appService = appService;
+}
 
 
+key: string = 'name';
+reverse: boolean = false;
+sort(key) {
+this.key = key;
+this.reverse = !this.reverse;
+}
 
-  ngOnInit() {
 
-    this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
 
-    this.queryFieldSearch.valueChanges.debounceTime(1000).subscribe(() => {
-      if (this.searchAirport !== undefined) {
-        this.appService.doGetSearch(this.searchAirport).subscribe(data => this.allairresults = data);
-      }
-    });
+ngOnInit() {
+this.appService.doGet(this.p).subscribe(data => this.allAirResults = data);
 
-  }
+this.searchAirportInput.valueChanges.debounceTime(1000).subscribe(() => {
+if (this.searchAirport !== undefined) {
+this.appService.doGetSearch(this.searchAirport).subscribe(data => this.allAirResults = data);
+}
+});
+}
 
-  getServerData() {
-    this.appService.doGet(this.p).subscribe(data => this.allairresults = data);
-  }
-
+getServerData() {
+this.appService.doGet(this.p).subscribe(data => this.allAirResults = data);
+}
 }
