@@ -2,7 +2,7 @@
   
  The Front end Project is made in angular 2 and backend support is developed in java 8 using spring boot framework. 
 
-### 🏠 [Homepage](http://localhost:9002/index.html0)
+### 🏠 [Homepage](http://localhost:9002/index.html)
 
 ### ✨ [Demo](http://localhost:9002/index.html)
 
