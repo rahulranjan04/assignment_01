@@ -41,10 +41,9 @@ public class AirlinesServiceImpl implements AirlinesService {
 
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
-
 		ResponseEntity<String> responseEntity = restOperations.getForEntity(urlGet, String.class);
-		HttpController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
 		stopWatch.stop();
+		HttpController.resultsHtpp.put(responseEntity.getStatusCode().name(), counter++);
 		resultsHtppResponse.put("Time_Taken_" + counter, (int) stopWatch.getTotalTimeMillis());
 		return Converter(responseEntity.getBody());
 	}
@@ -53,7 +52,6 @@ public class AirlinesServiceImpl implements AirlinesService {
 
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
-
 		ResponseEntity<String> responseEntity = restOperations.getForEntity(urlGet, String.class);
 		stopWatch.stop();
 		resultsHtppResponse.put("Time_Taken_" + counter, (int) stopWatch.getTotalTimeMillis());
